@@ -52,7 +52,7 @@ std::vector<at::Tensor> masked_ordered_ball_query(at::Tensor query_xyz, at::Tens
                                                   idx.data<int>(), idx_mask.data<int>(),
                                                   dists.data<float>(), tempidxs.data<int>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return {idx, idx_mask};

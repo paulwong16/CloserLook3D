@@ -38,7 +38,7 @@ std::vector<at::Tensor> masked_grid_subsampling(at::Tensor points, at::Tensor ma
     masked_grid_subsampling_kernel_wrapper(
         points.size(0), points.size(1), nsamples, sampleDl, points.data<float>(), mask.data<int>(), output.data<float>(), output_mask.data<int>(), mapidx.data<int>(), tempidx.data<int>(), temp_subxyz.data<float>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
   return {output, output_mask};
 }

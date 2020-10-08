@@ -40,7 +40,7 @@ std::vector<at::Tensor> masked_nearest_query(at::Tensor query_xyz, at::Tensor su
                                         query_mask.data<int>(), support_mask.data<int>(), 
                                         idx.data<int>(), idx_mask.data<int>());
   } else {
-    AT_CHECK(false, "CPU not supported");
+    TORCH_CHECK(false, "CPU not supported");
   }
 
   return {idx, idx_mask};
